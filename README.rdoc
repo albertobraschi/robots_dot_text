@@ -2,13 +2,15 @@ RobotsDotText
 =============
 
 Robots_dot_text allows you to create a robots.txt file dynamically using Ruby.
-This gives you the option to create directives are updated dynamically as your site's content changes.
-It's also a bit more fun and easier than having to remember the names of all of the various crawlers and
- the syntax for robots.txt files.
+This gives you the option to create directives that are updated dynamically as your site's content changes.
 
-You also have the option to log every request made to /robots.txt in a separate log file called user_agents.log - Perfect for spider-spotters
+...it's also a bit more fun and easier than having to remember the names of all of the various crawlers and the syntax for robots.txt files.
 
-The user_agents.log is written in csv(ish) format so you can change the extension and upload it to a database or spreadsheet of your choice.
+As a useful extra, you have the option to log every request made to /robots.txt in a separate log file called 
+user_agents.log - Perfect for spider-spotters
+
+The user_agents.log is written in csv(ish) format so you can change the extension and upload it to a database 
+or spreadsheet of your choice.
 
 All feedback welcome: dr_gavin@hotmail.com
 
@@ -16,13 +18,13 @@ All feedback welcome: dr_gavin@hotmail.com
 
 script/plugin install http://github.com/GavinM/robots_dot_text.git
 
-remove *robots.txt* from your _/public_ directory
+remove <b>robots.txt</b> from your <em>/public</em> directory
 
 create a controller for your robots with an action called index
-<tt>script/generate controller robots index</tt>
+	<tt>script/generate controller robots index</tt>
 
 add a route in <b>routes.rb</b> to your robots index action.
-<tt>map.connect "robots.txt", :controller => "robots"</tt>
+	<tt>map.connect "robots.txt", :controller => "robots"</tt>
 
 See the examples below for implementation.
 
@@ -30,41 +32,37 @@ See the examples below for implementation.
 ==Examples:
 
 ===Simple example
-<tt>
-class RobotsController &lt; ActionController::Base
-
+class RobotsController < ActionController::Base
 	def	index
 	  respond_to do |format|
 	    format.text do
 				log_user_agent # adds the crawler's user_agent to user_agents.log
 				@page_content = robots_dot_text do |rules|
 					rules.comment "Tell all crawlers to keep out of these pages"
-					rules.add :all, admin_path, customers_path, log_path
+					rules.add :all, user_path("*"), admin_path, customers_path, log_path
 					rules.br
 					rules.sitemap sitemap_url
 				end
-				render :text => @page_content
+				render :text => @page_content, :layout => false
 			end
 		end
 	end
-	
 end
-</tt>
+
 will render:
-<pre>
-# Tell all crawlers to keep out of these pages
-User-agent: *
-Disallow: /admin
-Disallow: /customers
-Disallow: /log
+	# Tell all crawlers to keep out of these pages
+	User-agent: *
+	Disallow: user/*
+	Disallow: /admin
+	Disallow: /customers
+	Disallow: /log
 
 Sitemap: http://handyrailstips.com/sitemap.xml
-</pre>
 
 ===Complex Example
-<tt>
-class RobotsController &lt; ActionController::Base
 
+class RobotsController < ActionController::Base
+	
 	def	index
 	  respond_to do |format|
 	    format.txt do
@@ -82,13 +80,10 @@ class RobotsController &lt; ActionController::Base
           rules.add [:yahoo, :msn, :cuil, :ask], private_path, admin_path
           rules.rate "1/500s"
           rules.delay 10
-          rules.comment <<-END
-Request robots only crawl between 2am and 8am.
-(Those are our quiet times)
-END
+          rules.comment "Request robots only crawl between 2am and 8am. (Those are our quiet times)"
           rules.visit_time "0200", "0800"
         end
-        render :text => @page_content
+        render :text => @page_content, :layout => false
       end
     end
   end
@@ -96,34 +91,33 @@ END
 end
 </tt>
 will render:
-<pre>
-User-agent: *
-Sitemap: http://handyrailstips.com/sitemap.xml
-Sitemap: http://handyrailstips.com/google_news_sitemap.xml
 
-# Google ignores most directives so here are some rules for Google
-User-agent: Googlebot
-User-agent: Googlebot-Image
-User-agent: Googlebot-Mobile
-Allow: /articles/show
-Disallow: /articles
+	User-agent: *
+	Sitemap: http://handyrailstips.com/sitemap.xml
+	Sitemap: http://handyrailstips.com/google_news_sitemap.xml
 
-# These crawlers respect the Crawl-delay directive
-User-agent: Slurp
-User-agent: MSNBot
-User-agent: Twiceler
-User-agent: Teoma
-Disallow: /private/
-Disallow: /admin
-Request-rate: 1/500s
-Crawl-delay: 10
-# Request robots only crawl between 2am and 8am.
-# (Those are our quiet times)
-Visit-time: 0200-0800
-</pre>
+	# Google ignores most directives so here are some rules for Google
+	User-agent: Googlebot
+	User-agent: Googlebot-Image
+	User-agent: Googlebot-Mobile
+	Allow: /articles/show
+	Disallow: /articles
 
-Check out the RDocs - robots_dot_text/doc/index.html
+	# These crawlers respect the Crawl-delay directive
+	User-agent: Slurp
+	User-agent: MSNBot
+	User-agent: Twiceler
+	User-agent: Teoma
+	Disallow: /private/
+	Disallow: /admin
+	Request-rate: 1/500s
+	Crawl-delay: 10
+	# Request robots only crawl between 2am and 8am.
+	# (Those are our quiet times)
+	Visit-time: 0200-0800
+
+Check out the RDocs - <em>robots_dot_text/doc/index.html</em>
 
 For more info on crawler user-agents check out http://www.user-agents.org/
 
-Copyright &copy; 2009 Gavin Morrice, released under the MIT license
+Copyright © 2009 Gavin Morrice, released under the MIT license
