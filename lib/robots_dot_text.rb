@@ -145,10 +145,10 @@ module RobotsDotText
     
     protected
     
-    # Adds a line-break after the first line of the log if it's just been initialized.
+    # clears away the initial line
     def add_first_break
       File.open(@path, "w") do |file|
-        file.write "\n"
+        file.write ""
       end
     end
     
