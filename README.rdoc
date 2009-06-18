@@ -31,22 +31,21 @@ See the examples below for implementation.
 ==Examples:
 
 ===Simple example
-
 	class RobotsController < ActionController::Base
-	 def	index
-	  respond_to do |format|
-	   format.text do
-			log_user_agent # adds the crawler's user_agent to user_agents.log
-			@page_content = robots_dot_text do |rules|
-			 rules.comment "Tell all crawlers to keep out of these pages"
-			 rules.add :all, user_path("*"), admin_path, customers_path, log_path
-			 rules.sitemap sitemap_url
+		def	index
+		  respond_to do |format|
+		    format.text do
+					log_user_agent # adds the crawler's user_agent to user_agents.log
+					@page_content = robots_dot_text do |rules|
+						rules.comment "Tell all crawlers to keep out of these pages"
+						rules.add :all, user_path("*"), admin_path, customers_path, log_path
+						rules.sitemap sitemap_url
+					end
+					render :text => @page_content, :layout => false
+				end
 			end
-			render :text => @page_content, :layout => false
-		 end
 		end
-	 end
- end
+	end
 will render:
 	# Tell all crawlers to keep out of these pages
 	User-agent: *
@@ -57,32 +56,33 @@ will render:
 	Sitemap: http://handyrailstips.com/sitemap.xml
 
 ===Complex Example
- class RobotsController < ActionController::Base	
-	skip_before_filter :filter_one, :filter_two
-	def	index
-	 respond_to do |format|
-		format.txt do
-	   log_user_agent(:short, logger) # :short is the datetime format, logger specifies to use Rails.logger instead
-	   @page_content = robots_dot_text do |rules|
-	    rules.add :all
-	    rules.sitemap sitemap_url, google_news_sitemap_url
-	    rules.comment "Google ignores most directives so here are some rules for Google"
-	    rules.add [:google, :google_image, :google_mobile]
-	    rules.allow "/articles/*"
-	    rules.block articles_path
-	    rules.comment "These crawlers respect the Crawl-delay directive"
-      rules.add [:yahoo, :msn, :cuil, :ask], private_path, admin_path
-      rules.rate "1/500s"
-      rules.delay 10
-      rules.comment "Request robots only crawl between 2am and 8am. (Those are our quiet times)"
-      rules.visit_time "0200", "0800"
-	   end
-	   render :text => @page_content, :layout => false
+	class RobotsController < ActionController::Base	
+		skip_before_filter :filter_one, :filter_two
+		def	index
+		  respond_to do |format|
+		    format.txt do
+	        log_user_agent(:short, logger) # :short is the datetime format, logger specifies to use Rails.logger instead
+	        @page_content = robots_dot_text do |rules|
+	          rules.add :all
+	          rules.sitemap sitemap_url, google_news_sitemap_url
+	          rules.comment "Google ignores most directives so here are some rules for Google"
+	          rules.add [:google, :google_image, :google_mobile]
+	          rules.allow "/articles/*"
+	          rules.block articles_path
+	          rules.comment "These crawlers respect the Crawl-delay directive"
+	          rules.add [:yahoo, :msn, :cuil, :ask], private_path, admin_path
+	          rules.rate "1/500s"
+	          rules.delay 10
+	          rules.comment "Request robots only crawl between 2am and 8am. (Those are our quiet times)"
+	          rules.visit_time "0200", "0800"
+	        end
+	        render :text => @page_content, :layout => false
+	      end
+	    end
 	  end
-	 end
 	end
- end
 will render:
+
 	User-agent: *
 	Sitemap: http://handyrailstips.com/sitemap.xml
 	Sitemap: http://handyrailstips.com/google_news_sitemap.xml
