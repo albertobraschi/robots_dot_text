@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Module: RobotsDotText::UserAgents</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+    <div id="classHeader">
+        <table class="header-table">
+        <tr class="top-aligned-row">
+          <td><strong>Module</strong></td>
+          <td class="class-name-in-header">RobotsDotText::UserAgents</td>
+        </tr>
+        <tr class="top-aligned-row">
+            <td><strong>In:</strong></td>
+            <td>
+                <a href="../../files/lib/robots_dot_text/user_agents_rb.html">
+                lib/robots_dot_text/user_agents.rb
+                </a>
+        <br />
+            </td>
+        </tr>
+
+        </table>
+    </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+When adding User-agent directives with the <b>add</b> method, you can pass
+any of these symbols as the user agent parameter. For example:
+</p>
+<p>
+<tt>robots_dot_text new { |rules| rules.add :google, &quot;/users&quot;,
+&quot;/admin&quot; }</tt>
+</p>
+<p>
+&#8230; which makes life a little easier.
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+    <div id="constants-list">
+      <h3 class="section-bar">Constants</h3>
+
+      <div class="name-list">
+        <table summary="Constants">
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">USER_AGENTS</td>
+          <td>=</td>
+          <td class="context-item-value">{       :all =&gt; &quot;*&quot;,       :google =&gt; &quot;Googlebot&quot;,        :google_image =&gt;  &quot;Googlebot-Image&quot;,        :google_mobile =&gt;  &quot;Googlebot-Mobile&quot;,       :msn =&gt; &quot;MSNBot&quot;,        :yahoo =&gt; &quot;Slurp&quot;,        :yahoo_mm_crawler =&gt; &quot;yahoo-mmcrawler&quot;,       :yahoo_blogs =&gt; &quot;yahoo-blogs/v3.9&quot;,       :ask =&gt; &quot;Teoma&quot;,        :cuil =&gt; &quot;Twiceler&quot;,       :gigablast =&gt; &quot;Gigabot&quot;,       :scrub_the_web =&gt;  &quot;Scrubby&quot;,       :dmoz =&gt; &quot;Robozilla&quot;,       :nutch =&gt; &quot;Nutch&quot;,       :alexa =&gt;  &quot;ia_archiver&quot;,       :baidu =&gt; &quot;baiduspider&quot;,       :naver =&gt; &quot;naverbot&quot;,       :yeti =&gt; &quot;yeti&quot;,       :picsearch =&gt; &quot;psbot&quot;,       :singing_fish =&gt; &quot;asterias&quot;,       :technorati =&gt; &quot;Technoratibot&quot;}</td>
+          <td width="3em">&nbsp;</td>
+          <td class="context-item-desc"><h2>Known User Agents</h2>
+
+<a
+href="http://www.google.com/support/webmasters/bin/answer.py?hl=en&answer=40364">www.google.com/support/webmasters/bin/answer.py?hl=en&answer=40364</a>
+
+<dl>
+<dt>:google</dt><dd>=&gt; &quot;Googlebot&quot;
+
+</dd>
+<dt>:google_image</dt><dd>=&gt; &quot;Googlebot-Image&quot;
+
+</dd>
+<dt>:google_mobile</dt><dd>=&gt; &quot;Googlebot-Mobile&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://help.live.com/help.aspx?mkt=en-gb&project=wl_webmasters">help.live.com/help.aspx?mkt=en-gb&project=wl_webmasters</a>
+</p>
+<dl>
+<dt>:msn</dt><dd>=&gt; &quot;MSNBot&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://help.yahoo.com/l/us/yahoo/search/webcrawler">help.yahoo.com/l/us/yahoo/search/webcrawler</a>/
+</p>
+<dl>
+<dt>:yahoo</dt><dd>=&gt; &quot;Slurp&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://help.yahoo.com/l/us/yahoo/search/image/image-08.html">help.yahoo.com/l/us/yahoo/search/image/image-08.html</a>
+</p>
+<dl>
+<dt>:yahoo_mm_crawler</dt><dd>=&gt; &quot;yahoo-mmcrawler&quot;
+
+</dd>
+<dt>:yahoo_blogs</dt><dd>=&gt; &quot;yahoo-blogs/v3.9&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://about.ask.com/en/docs/about/webmasters.shtml">about.ask.com/en/docs/about/webmasters.shtml</a>
+</p>
+<dl>
+<dt>:ask</dt><dd>=&gt; &quot;Teoma&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://www.cuil.com/info/webmaster_info">www.cuil.com/info/webmaster_info</a>/
+</p>
+<dl>
+<dt>:cuil</dt><dd>=&gt; &quot;Twiceler&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://www.gigablast.com/spider.html">www.gigablast.com/spider.html</a>
+</p>
+<dl>
+<dt>:gigablast</dt><dd>=&gt; &quot;Gigabot&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://www.scrubtheweb.com/help/technology.html">www.scrubtheweb.com/help/technology.html</a>
+</p>
+<dl>
+<dt>:scrub_the_web</dt><dd>=&gt; &quot;Scrubby&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://www.dmoz.org/guidelines/robozilla.html">www.dmoz.org/guidelines/robozilla.html</a>
+</p>
+<dl>
+<dt>:dmoz</dt><dd>=&gt; &quot;Robozilla&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://nutch.sourceforge.net/docs/en/bot.html">nutch.sourceforge.net/docs/en/bot.html</a>
+</p>
+<dl>
+<dt>:nutch</dt><dd>=&gt; &quot;Nutch&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://www.alexa.com/help/webmasters">www.alexa.com/help/webmasters</a>
+</p>
+<dl>
+<dt>:alexa</dt><dd>=&gt; &quot;ia_archiver&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://www.baidu.com/search/spider.htm">www.baidu.com/search/spider.htm</a>
+</p>
+<dl>
+<dt>:baidu</dt><dd>=&gt; &quot;baiduspider&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://help.naver.com/customer_webtxt_01.jsp">help.naver.com/customer_webtxt_01.jsp</a>
+(not in english)
+</p>
+<dl>
+<dt>:naver</dt><dd>=&gt; &quot;naverbot&quot;
+
+</dd>
+<dt>:yeti</dt><dd>=&gt; &quot;yeti&quot;
+
+</dd>
+</dl>
+<p>
+<a
+href="http://www.picsearch.com/menu.cgi?item=Psbot">www.picsearch.com/menu.cgi?item=Psbot</a>
+</p>
+<dl>
+<dt>:picsearch</dt><dd>=&gt; &quot;psbot&quot;
+
+</dd>
+<dt>:singing_fish</dt><dd>=&gt; &quot;asterias&quot;
+
+</dd>
+</dl>
+<p>
+<a href="http://technorati.com">technorati.com</a>
+</p>
+<dl>
+<dt>:technorati</dt><dd>=&gt; &quot;Technoratibot&quot;
+
+</dd>
+</dl>
+</td>
+        </tr>
+        </table>
+      </div>
+    </div>
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
