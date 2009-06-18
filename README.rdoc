@@ -49,7 +49,7 @@ See the examples below for implementation.
 will render:
 	# Tell all crawlers to keep out of these pages
 	User-agent: *
-	Disallow: user/*
+	Disallow: users/*
 	Disallow: /admin
 	Disallow: /customers
 	Disallow: /log
@@ -73,7 +73,7 @@ will render:
 	          rules.add [:yahoo, :msn, :cuil, :ask], private_path, admin_path
 	          rules.rate "1/500s"
 	          rules.delay 10
-	          rules.comment "Request robots only crawl between 2am and 8am. (Those are our quiet times)"
+	          rules.comment "Request robots only crawl between 2am and 8am.\n(Those are our quiet times)"
 	          rules.visit_time "0200", "0800"
 	        end
 	        render :text => @page_content, :layout => false
