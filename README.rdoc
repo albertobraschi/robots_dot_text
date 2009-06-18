@@ -63,11 +63,11 @@ will render:
 		    format.txt do
 	        log_user_agent(:short, logger) # :short is the datetime format, logger specifies to use Rails.logger instead
 	        @page_content = robots_dot_text do |rules|
-	          rules.add :all
+	          rules.add :all, admin_path
 	          rules.sitemap sitemap_url, google_news_sitemap_url
 	          rules.comment "Google ignores most directives so here are some rules for Google"
 	          rules.add [:google, :google_image, :google_mobile]
-	          rules.allow "/articles/*"
+	          rules.allow article_path("*")
 	          rules.block articles_path
 	          rules.comment "These crawlers respect the Crawl-delay directive"
 	          rules.add [:yahoo, :msn, :cuil, :ask], private_path, admin_path
@@ -84,20 +84,21 @@ will render:
 will render:
 
 	User-agent: *
+	Disallow: "/admin"
 	Sitemap: http://handyrailstips.com/sitemap.xml
 	Sitemap: http://handyrailstips.com/google_news_sitemap.xml
 	# Google ignores most directives so here are some rules for Google
 	User-agent: Googlebot
 	User-agent: Googlebot-Image
 	User-agent: Googlebot-Mobile
-	Allow: /articles/show
+	Allow: /articles/*
 	Disallow: /articles
 	# These crawlers respect the Crawl-delay directive
 	User-agent: Slurp
 	User-agent: MSNBot
 	User-agent: Twiceler
 	User-agent: Teoma
-	Disallow: /private/
+	Disallow: /private
 	Disallow: /admin
 	Request-rate: 1/500s
 	Crawl-delay: 10
