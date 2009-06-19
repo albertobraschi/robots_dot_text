@@ -1,7 +1,8 @@
 #:enddoc:
 require 'test_helper'
+require "#{File.dirname(__FILE__)}/../lib/robots_dot_text/user_agents"
 class RobotsDotTextTest < ActiveSupport::TestCase
-  include RobotsDotText::UserAgents
+  include UserAgents
   
   test "eskimos should be cold" do
     @eskimos = "cold"

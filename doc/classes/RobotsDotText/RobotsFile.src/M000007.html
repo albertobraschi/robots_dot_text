@@ -5,14 +5,17 @@
 
 <html>
 <head>
-  <title>allow (RobotsDotText::RobotsFile)</title>
+  <title>comment (RobotsDotText::RobotsFile)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 41</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">allow</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">routes</span>)
-      <span class="ruby-identifier">routes</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">route</span><span class="ruby-operator">|</span> <span class="ruby-ivar">@rules</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Allow: #{route.to_s}\n&quot;</span> }
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 24</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">comment</span>(<span class="ruby-identifier">comment</span>)
+      <span class="ruby-identifier">comment</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">&quot;\n&quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">comnt</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@rules</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;# #{comnt}\n&quot;</span>
+      <span class="ruby-keyword kw">end</span>
+      <span class="ruby-keyword kw">nil</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

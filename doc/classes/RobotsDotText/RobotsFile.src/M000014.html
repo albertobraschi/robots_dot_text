@@ -5,14 +5,15 @@
 
 <html>
 <head>
-  <title>add (RobotsDotText::RobotsFile)</title>
+  <title>delay (RobotsDotText::RobotsFile)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 86</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">user_agent</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">paths</span>)
-      <span class="ruby-ivar">@rules</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Rule</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">user_agent</span>, <span class="ruby-identifier">paths</span>).<span class="ruby-identifier">to_s</span>
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 73</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">delay</span>(<span class="ruby-identifier">delay</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;delay #{delay.inspect} is invalid, format should be \\d+&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">delay</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\d+$/</span>
+      <span class="ruby-ivar">@rules</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Crawl-delay: #{delay.to_s}\n&quot;</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

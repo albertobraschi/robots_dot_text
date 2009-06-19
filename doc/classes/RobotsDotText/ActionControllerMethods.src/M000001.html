@@ -5,14 +5,15 @@
 
 <html>
 <head>
-  <title>robots_dot_text (RobotsDotText::ActionControllerMethods)</title>
+  <title>included (RobotsDotText::ActionControllerMethods)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text/action_controller_methods.rb, line 8</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">robots_dot_text</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
-      <span class="ruby-constant">RobotsDotText</span><span class="ruby-operator">::</span><span class="ruby-constant">RobotsFile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>).<span class="ruby-identifier">to_s</span>
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 166</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">base</span>)      
+      <span class="ruby-identifier">base</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-constant">ClassMethods</span>)
+      <span class="ruby-identifier">base</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">:include</span>, <span class="ruby-constant">InstanceMethods</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

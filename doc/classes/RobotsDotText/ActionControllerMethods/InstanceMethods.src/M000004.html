@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>log_user_agent (RobotsDotText::ActionControllerMethods::InstanceMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 206</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">log_user_agent</span>(<span class="ruby-identifier">format</span> = <span class="ruby-identifier">:long</span>, <span class="ruby-identifier">log_to</span> = <span class="ruby-identifier">ua_logger</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Cannot log user agents, SHOULD_CREATE_UA_LOG = false
+  See RobotsDotText README for more info&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-constant">SHOULD_CREATE_UA_LOG</span>
+        <span class="ruby-identifier">log_to</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;\&quot;#{request.user_agent}\&quot;, \&quot;#{DateTime.now.to_s(format)}\&quot;&quot;</span>
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Thu Jun 18 17:18:06 +0100 2009</td>
+      <td>Fri Jun 19 21:01:52 +0100 2009</td>
     </tr>
     </table>
   </div>
@@ -68,70 +68,7 @@
 
   <div id="contextContent">
 
-    <div id="description">
-      <h2>Examples:</h2>
-<h3>Simple example</h3>
-<p>
-<em># in RobotsController</em>
-</p>
-<pre>
-  def index
-    respond_to do |format|
-      format.text do
-        log_user_agent # adds the crawler's user_agent to user_agents.log
-        @page_content = robots_dot_text do |rules|
-          rules.comment &quot;Tell all crawlers to keep out of these pages&quot;
-          rules.add :all, admin_path, customers_path, log_path
-          rules.br
-          rules.sitemap sitemap_url
-        end
-        render :text =&gt; @page_content
-      end
-    end
-  end
-</pre>
-<h3>Complex Example</h3>
-<p>
-<em># in RobotsController</em>
-</p>
-<pre>
-  def index
-    respond_to do |format|
-      format.txt do
-        log_user_agent(:short, logger) # :short is the datetime format, logger specifies to use Rails.logger instead
-        @page_content = robots_dot_text do |rules|
-          rules.add :all
-          rules.sitemap sitemap_url, google_news_sitemap_url
-          rules.br
-          rules.comment &quot;Google ignores most directives so here are some rules for Google&quot;
-          rules.add [:google, :google_image, :google_mobile]
-          rules.allow &quot;/articles/*&quot;
-          rules.block articles_path
-          rules.line_break
-          rules.comment &quot;These crawlers respect the Crawl-delay directive&quot;
-          rules.add [:yahoo, :msn, :cuil, :ask], private_path, admin_path
-          rules.rate &quot;1/500s&quot;
-          rules.delay 10
-          rules.comment &quot;Request robots only crawl between 2am and 8am.&quot;
-          rules.visit_time &quot;0200&quot;, &quot;0800&quot;
-        end
-        render :text =&gt; @page_content
-      end
-    end
-  end
-</pre>
 
-    </div>
-
-    <div id="requires-list">
-      <h3 class="section-bar">Required files</h3>
-
-      <div class="name-list">
-      robots_dot_text&nbsp;&nbsp;
-      robots_dot_text/user_agents&nbsp;&nbsp;
-      robots_dot_text/action_controller_methods&nbsp;&nbsp;
-      </div>
-    </div>
 
    </div>
 

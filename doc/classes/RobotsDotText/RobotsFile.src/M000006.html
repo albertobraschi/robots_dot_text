@@ -5,17 +5,16 @@
 
 <html>
 <head>
-  <title>sitemap (RobotsDotText::RobotsFile)</title>
+  <title>new (RobotsDotText::RobotsFile)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 31</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">sitemap</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">urls</span>)
-      <span class="ruby-identifier">urls</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">url</span><span class="ruby-operator">|</span>
-        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Sitemap url #{url.inspect} is invalid. This should be an absolute URL.&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">url</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp re">/^http/</span>).<span class="ruby-identifier">empty?</span>
-        <span class="ruby-ivar">@rules</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Sitemap: #{url.to_s}\n&quot;</span>
-      <span class="ruby-keyword kw">end</span>
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 16</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+      <span class="ruby-ivar">@permissions</span> = []
+      <span class="ruby-ivar">@rules</span> = <span class="ruby-constant">String</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-keyword kw">yield</span>(<span class="ruby-keyword kw">self</span>)
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

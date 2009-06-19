@@ -5,10 +5,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Module: RobotsDotText::UserAgents</title>
+  <title>Module: UserAgents</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
-  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href=".././rdoc-style.css" type="text/css" media="screen" />
   <script type="text/javascript">
   // <![CDATA[
 
@@ -50,12 +50,12 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Module</strong></td>
-          <td class="class-name-in-header">RobotsDotText::UserAgents</td>
+          <td class="class-name-in-header">UserAgents</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
-                <a href="../../files/lib/robots_dot_text/user_agents_rb.html">
+                <a href="../files/lib/robots_dot_text/user_agents_rb.html">
                 lib/robots_dot_text/user_agents.rb
                 </a>
         <br />
@@ -105,9 +105,9 @@ any of these symbols as the user agent parameter. For example:
       <div class="name-list">
         <table summary="Constants">
         <tr class="top-aligned-row context-row">
-          <td class="context-item-name">USER_AGENTS</td>
+          <td class="context-item-name">KNOWN_USER_AGENTS</td>
           <td>=</td>
-          <td class="context-item-value">{       :all =&gt; &quot;*&quot;,       :google =&gt; &quot;Googlebot&quot;,        :google_image =&gt;  &quot;Googlebot-Image&quot;,        :google_mobile =&gt;  &quot;Googlebot-Mobile&quot;,       :msn =&gt; &quot;MSNBot&quot;,        :yahoo =&gt; &quot;Slurp&quot;,        :yahoo_mm_crawler =&gt; &quot;yahoo-mmcrawler&quot;,       :yahoo_blogs =&gt; &quot;yahoo-blogs/v3.9&quot;,       :ask =&gt; &quot;Teoma&quot;,        :cuil =&gt; &quot;Twiceler&quot;,       :gigablast =&gt; &quot;Gigabot&quot;,       :scrub_the_web =&gt;  &quot;Scrubby&quot;,       :dmoz =&gt; &quot;Robozilla&quot;,       :nutch =&gt; &quot;Nutch&quot;,       :alexa =&gt;  &quot;ia_archiver&quot;,       :baidu =&gt; &quot;baiduspider&quot;,       :naver =&gt; &quot;naverbot&quot;,       :yeti =&gt; &quot;yeti&quot;,       :picsearch =&gt; &quot;psbot&quot;,       :singing_fish =&gt; &quot;asterias&quot;,       :technorati =&gt; &quot;Technoratibot&quot;}</td>
+          <td class="context-item-value">{     :google =&gt; &quot;Googlebot&quot;,      :google_image =&gt;  &quot;Googlebot-Image&quot;,      :google_mobile =&gt;  &quot;Googlebot-Mobile&quot;,     :msn =&gt; &quot;MSNBot&quot;,      :yahoo =&gt; &quot;Slurp&quot;,      :yahoo_mm_crawler =&gt; &quot;yahoo-mmcrawler&quot;,     :yahoo_blogs =&gt; &quot;yahoo-blogs/v3.9&quot;,     :ask =&gt; &quot;Teoma&quot;,      :cuil =&gt; &quot;Twiceler&quot;,     :gigablast =&gt; &quot;Gigabot&quot;,     :scrub_the_web =&gt;  &quot;Scrubby&quot;,     :dmoz =&gt; &quot;Robozilla&quot;,     :nutch =&gt; &quot;Nutch&quot;,     :alexa =&gt;  &quot;ia_archiver&quot;,     :baidu =&gt; &quot;baiduspider&quot;,     :naver =&gt; &quot;naverbot&quot;,     :yeti =&gt; &quot;yeti&quot;,     :picsearch =&gt; &quot;psbot&quot;,     :singing_fish =&gt; &quot;asterias&quot;,     :technorati =&gt; &quot;Technoratibot&quot;}</td>
           <td width="3em">&nbsp;</td>
           <td class="context-item-desc"><h2>Known User Agents</h2>
 
@@ -261,6 +261,16 @@ href="http://www.picsearch.com/menu.cgi?item=Psbot">www.picsearch.com/menu.cgi?i
 </dd>
 </dl>
 </td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">ALL_USER_AGENTS</td>
+          <td>=</td>
+          <td class="context-item-value">{:all =&gt; &quot;*&quot;}</td>
+        </tr>
+        <tr class="top-aligned-row context-row">
+          <td class="context-item-name">USER_AGENTS</td>
+          <td>=</td>
+          <td class="context-item-value">ALL_USER_AGENTS.merge(KNOWN_USER_AGENTS)</td>
         </tr>
         </table>
       </div>

@@ -5,15 +5,16 @@
 
 <html>
 <head>
-  <title>rate (RobotsDotText::RobotsFile)</title>
+  <title>visit_time (RobotsDotText::RobotsFile)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 80</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">rate</span>(<span class="ruby-identifier">rate</span>)
-      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;rate #{rate.inspect} is invalid, this should be a fraction. eg.: 1/864&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">rate</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp re">/^\d{1,2}\/\d+(s|m|h)?$/</span>
-      <span class="ruby-ivar">@rules</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Request-rate: #{rate}\n&quot;</span>
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 65</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">visit_time</span>(<span class="ruby-identifier">start_time</span>, <span class="ruby-identifier">end_time</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;start_time #{start_time.inspect} is invalid, format should be \&quot;\\d\\d\\d\\d\&quot;&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">start_time</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\d\d\d\d$/</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;end_time #{start_time.inspect} is invalid, format should be \&quot;\\d\\d\\d\\d\&quot;&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">end_time</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/^\d\d\d\d$/</span>
+      <span class="ruby-ivar">@rules</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;Visit-time: #{start_time}-#{end_time}\n&quot;</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -5,14 +5,18 @@
 
 <html>
 <head>
-  <title>known_agents (RobotsDotText::Rule)</title>
+  <title>new (RobotsDotText::Rule)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 129</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">known_agents</span>(<span class="ruby-identifier">ua</span>)
-      <span class="ruby-constant">USER_AGENTS</span>[<span class="ruby-identifier">ua</span>.<span class="ruby-identifier">to_sym</span>] <span class="ruby-operator">?</span> <span class="ruby-constant">USER_AGENTS</span>[<span class="ruby-identifier">ua</span>.<span class="ruby-identifier">to_sym</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">ua</span>.<span class="ruby-identifier">to_s</span>
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 104</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">user_agent</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">paths</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;user_agent can't be nil&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">user_agent</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-value str">&quot;user_agent can't be blank&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">user_agent</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-keyword kw">and</span> <span class="ruby-identifier">user_agent</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-ivar">@user_agent</span> = <span class="ruby-identifier">user_agent</span>
+      <span class="ruby-ivar">@paths</span> = <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">flatten</span>      
+      <span class="ruby-keyword kw">self</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

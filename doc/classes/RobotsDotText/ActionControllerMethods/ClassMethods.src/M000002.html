@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>turn_off_sessions_for_robots (RobotsDotText::ActionControllerMethods::ClassMethods)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File lib/robots_dot_text.rb, line 178</span>
+      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">turn_off_sessions_for_robots</span>
+        <span class="ruby-identifier">robots</span> = <span class="ruby-constant">KNOWN_USER_AGENTS</span>.<span class="ruby-identifier">values</span>
+        <span class="ruby-identifier">session</span> <span class="ruby-identifier">:off</span>, <span class="ruby-identifier">:if</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">lambda</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span> <span class="ruby-identifier">req</span>.<span class="ruby-identifier">user_agent</span> <span class="ruby-operator">=~</span> <span class="ruby-node">/(#{robots.join(&quot;|&quot;)})/i</span>}
+      <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

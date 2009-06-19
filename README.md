@@ -128,6 +128,7 @@ will render:
 
 ## Extras
 To turn off sessions for robots, add *turn_off_sessions_for_robots* to your application controller.
+(not required from Rails >=2.3)
 
 To log the user-agent in the current request header, call *log_user_agent* in your controller. You can use this in your respond_to block to log the user-agent of any robots hitting /robots.txt
 

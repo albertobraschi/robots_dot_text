@@ -5,10 +5,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>Module: RobotsDotText::ActionControllerMethods</title>
+  <title>Module: RobotsDotText::ActionControllerMethods::ClassMethods</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta http-equiv="Content-Script-Type" content="text/javascript" />
-  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
   <script type="text/javascript">
   // <![CDATA[
 
@@ -50,12 +50,12 @@
         <table class="header-table">
         <tr class="top-aligned-row">
           <td><strong>Module</strong></td>
-          <td class="class-name-in-header">RobotsDotText::ActionControllerMethods</td>
+          <td class="class-name-in-header">RobotsDotText::ActionControllerMethods::ClassMethods</td>
         </tr>
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
-                <a href="../../files/lib/robots_dot_text_rb.html">
+                <a href="../../../files/lib/robots_dot_text_rb.html">
                 lib/robots_dot_text.rb
                 </a>
         <br />
@@ -72,6 +72,12 @@
 
   <div id="contextContent">
 
+    <div id="description">
+      <p>
+Class methods included in ActionController::Base
+</p>
+
+    </div>
 
 
    </div>
@@ -80,7 +86,7 @@
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000001">included</a>&nbsp;&nbsp;
+      <a href="#M000002">turn_off_sessions_for_robots</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -88,16 +94,16 @@
 
 
     <!-- if includes -->
+    <div id="includes">
+      <h3 class="section-bar">Included Modules</h3>
+
+      <div id="includes-list">
+        <span class="include-name"><a href="../../UserAgents.html">UserAgents</a></span>
+      </div>
+    </div>
 
     <div id="section">
 
-    <div id="class-list">
-      <h3 class="section-bar">Classes and Modules</h3>
-
-      Module <a href="ActionControllerMethods/ClassMethods.html" class="link">RobotsDotText::ActionControllerMethods::ClassMethods</a><br />
-Module <a href="ActionControllerMethods/InstanceMethods.html" class="link">RobotsDotText::ActionControllerMethods::InstanceMethods</a><br />
-
-    </div>
 
 
 
@@ -107,24 +113,22 @@ Module <a href="ActionControllerMethods/InstanceMethods.html" class="link">Robot
 
     <!-- if method_list -->
     <div id="methods">
-      <h3 class="section-bar">Public Class methods</h3>
+      <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000001" class="method-detail">
-        <a name="M000001"></a>
+      <div id="method-M000002" class="method-detail">
+        <a name="M000002"></a>
 
         <div class="method-heading">
-          <a href="ActionControllerMethods.src/M000001.html" target="Code" class="method-signature"
-            onclick="popupCode('ActionControllerMethods.src/M000001.html');return false;">
-          <span class="method-name">included</span><span class="method-args">(base)</span>
+          <a href="ClassMethods.src/M000002.html" target="Code" class="method-signature"
+            onclick="popupCode('ClassMethods.src/M000002.html');return false;">
+          <span class="method-name">turn_off_sessions_for_robots</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
           <p>
-when the <a href="../RobotsDotText.html">RobotsDotText</a> module is
-include, extend self with <a
-href="ActionControllerMethods/ClassMethods.html">ClassMethods</a> and <a
-href="ActionControllerMethods/InstanceMethods.html">InstanceMethods</a>
+Call this in your controller if you want to disable sessions for known
+robots (not required if you&#8216;re running Rails 2.3 or higher)
 </p>
         </div>
       </div>
