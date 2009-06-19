@@ -58,11 +58,8 @@ module RobotsDotText
     # [:singing_fish] => "asterias"
     #
     # http://technorati.com
-    # [:technorati] => "Technoratibot"
-    
-    
-    USER_AGENTS = {
-      :all => "*",
+    # [:technorati] => "Technoratibot"    
+    KNOWN_USER_AGENTS = {
       :google => "Googlebot", 
       :google_image =>  "Googlebot-Image", 
       :google_mobile =>  "Googlebot-Mobile",
@@ -83,5 +80,9 @@ module RobotsDotText
       :picsearch => "psbot",
       :singing_fish => "asterias",
       :technorati => "Technoratibot"}
+      
+    ALL_USER_AGENTS = {:all => "*"}
+    
+    USER_AGENTS = ALL_USER_AGENTS.merge(KNOWN_USER_AGENTS)
   end
 end
