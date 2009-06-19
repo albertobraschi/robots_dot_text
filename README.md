@@ -53,16 +53,15 @@ end
 	</code>
 </pre>
 
-will render:
-<pre>
-# Tell all crawlers to keep out of these pages
-User-agent: *
-Disallow: /admin
-Disallow: /customers
-Disallow: /log
+	will render:
 
-Sitemap: http://handyrailstips.com/sitemap.xml
-</pre>
+	# Tell all crawlers to keep out of these pages
+	User-agent: *
+	Disallow: /admin
+	Disallow: /customers
+	Disallow: /log
+
+	Sitemap: http://handyrailstips.com/sitemap.xml
 
 ### Complex Example
 <pre>
@@ -102,31 +101,30 @@ end
 </pre>
 </tt>
 will render:
-<pre>
-User-agent: *
-Sitemap: http://handyrailstips.com/sitemap.xml
-Sitemap: http://handyrailstips.com/google_news_sitemap.xml
 
-# Google ignores most directives so here are some rules for Google
-User-agent: Googlebot
-User-agent: Googlebot-Image
-User-agent: Googlebot-Mobile
-Allow: /articles/*
-Disallow: /articles
+	User-agent: *
+	Sitemap: http://handyrailstips.com/sitemap.xml
+	Sitemap: http://handyrailstips.com/google_news_sitemap.xml
 
-# These crawlers respect the Crawl-delay directive
-User-agent: Slurp
-User-agent: MSNBot
-User-agent: Twiceler
-User-agent: Teoma
-Disallow: /private
-Disallow: /admin
-Request-rate: 1/500s
-Crawl-delay: 10
-# Request robots only crawl between 2am and 8am.
-# (Those are our quiet times)
-Visit-time: 0200-0800
-</pre>
+	# Google ignores most directives so here are some rules for Google
+	User-agent: Googlebot
+	User-agent: Googlebot-Image
+	User-agent: Googlebot-Mobile
+	Allow: /articles/*
+	Disallow: /articles
+
+	# These crawlers respect the Crawl-delay directive
+	User-agent: Slurp
+	User-agent: MSNBot
+	User-agent: Twiceler
+	User-agent: Teoma
+	Disallow: /private
+	Disallow: /admin
+	Request-rate: 1/500s
+	Crawl-delay: 10
+	# Request robots only crawl between 2am and 8am.
+	# (Those are our quiet times)
+	Visit-time: 0200-0800
 
 ## Extras
 To turn off sessions for robots, add *turn_off_sessions_for_robots* to your application controller.
