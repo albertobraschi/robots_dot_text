@@ -38,7 +38,7 @@ class RobotsController < ActionController::Base
     respond_to do |format|
       format.text do
         log_user_agent # adds the crawler's user_agent to user_agents.log
-        @page_content = robots dot text do |rules|
+        @page_content = robots_dot_text do |rules|
           rules.comment "Tell all crawlers to keep out of these pages"
           rules.add :all, admin_path, customers_path, log_path
           rules.br
@@ -72,7 +72,7 @@ class RobotsController & ActionController::Base
     respond_to do |format|
       format.txt do
         log_user_agent(:short, logger) # :short is the datetime format, logger specifies to use Rails.logger instead
-        @page_content = robots dot text do |rules|
+        @page_content = robots_dot_text do |rules|
           rules.add :all
           rules.sitemap sitemap_url, google_news_sitemap_url
           rules.br
